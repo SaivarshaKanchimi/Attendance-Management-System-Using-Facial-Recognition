@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Login</title>
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles/login.css') }}"
+    />
+  </head>
+
+  <body>
+    <div class="center">
+      <h1>Login</h1>
+
+      <form action="/admin_login" method="post" autocomplete="off">
+        <div class="txt_field">
+          <input type="text" name="id_number" required />
+          <span></span>
+          <label>ID Number</label>
+        </div>
+
+        <div class="txt_field">
+          <input type="email" name="email" required />
+          <span></span>
+          <label>Email</label>
+        </div>
+
+        <div class="txt_field">
+          <input type="password" name="password" required />
+          <span></span>
+          <label>Password</label>
+        </div>
+
+        <input type="submit" value="Login" />
+
+        <div class="bottom_text">
+          Forgot Password? Please contact your teacher or IT Team.
+        </div>
+
+        {% if data %}
+        <div class="bottom_text error-message">
+          {{ data }}
+        </div>
+        {% endif %}
+      </form>
+
+      <button type="button" onclick="window.location.href='/'">
+        Home
+      </button>
+    </div>
+  </body>
+</html>
